@@ -29,12 +29,6 @@ Se ha respetado cada medida, color y espacio para lograr un resultado pixel perf
 
 ---
 
-## 🚀 Demo
-
-Puedes ver una [vista previa en vivo](#) para comprobar el comportamiento en diferentes dispositivos.
-
----
-
 ## 💾 Instalación
 
 1. Clona el repositorio:
