@@ -4,20 +4,175 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prueba Técnica Tecalis</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <!-- logo y navegación -->
-  </header>
-  <main>
-    <!-- bloque Hero -->
-    <section class="hero"></section>
+  <div class="decor-top-right"></div>
 
-    <!-- más secciones aquí... -->
-  </main>
+  <!-- ===== Sección 1: header/item ===== -->
+  <header class="site-header">
+    <div class="container">
+      <section class="item">
+
+        <div class="item__tag-text">
+          <img
+            src="img/logo.png"
+            alt="Logo Tecalis"
+            class="item__logo"
+          />
+          <h1 class="item__title">
+            Lorem ipsum dolor sit amet consectetur adipis
+          </h1>
+          <p class="item__subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mollis
+            adipiscing in turpis luctus ipsum, amet. Risus ac mauris
+            pellentesque sed nunc nulla accumsan nec. Risus gravida donec
+            tempor feugiat.
+          </p>
+          <a href="#" class="item__btn">
+  <h4 class="item__btn-label">Button</h4>
+</a>
+        </div>
+
+        <div class="item__image">
+          <img
+            src="img/img-1.png"
+            alt="Ilustración principal"
+            class="item__frame"
+          />
+        </div>
+
+      </section>
+    </div>
+  </header>
+
+  <!-- ===== Sección 2: desplegables ===== -->
+  <section class="collapses">
+    <div class="container">
+      <h2 class="collapses__heading">Lorem ipsum dolor sit amet</h2>
+      <div class="collapses__list">
+
+        <div class="collapse collapses__item collapse--expanded">
+          <button
+            class="collapse__trigger"
+            aria-expanded="true"
+            aria-controls="panel-1"
+            id="trigger-1"
+          >
+            <h4 class="collapse__title">Lorem ipsum</h4>
+            <span class="collapse__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#27415C" aria-hidden="true">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+              </svg>
+            </span>
+          </button>
+          <div id="panel-1" class="collapse__panel">
+            <img src="img/img-2.png" alt="Detalle desplegado" class="collapse__img"/>
+          </div>
+        </div>
+
+        <div class="collapse collapses__item">
+          <button
+            class="collapse__trigger"
+            aria-expanded="false"
+            aria-controls="panel-2"
+            id="trigger-2"
+          >
+            <h4 class="collapse__title">Lorem ipsum</h4>
+            <span class="collapse__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#27415C" aria-hidden="true">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+              </svg>
+            </span>
+          </button>
+          <div id="panel-2" class="collapse__panel" hidden></div>
+        </div>
+
+        <div class="collapse collapses__item">
+          <button
+            class="collapse__trigger"
+            aria-expanded="false"
+            aria-controls="panel-3"
+            id="trigger-3"
+          >
+            <h4 class="collapse__title">Lorem ipsum</h4>
+            <span class="collapse__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#27415C" aria-hidden="true">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+              </svg>
+            </span>
+          </button>
+          <div id="panel-3" class="collapse__panel" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Sección 2b: collapses escritorio ===== -->
+  <section class="collapses-desktop">
+    <div class="container">
+      <div class="collapses-desktop__grid">
+        <div class="collapses-desktop__panel">
+          <img
+            src="img/img-2.png"
+            alt="Imagen detalle"
+            class="collapses-desktop__img"
+          />
+        </div>
+        <div class="collapses-desktop__tabs">
+            <h2 class="collapses__heading">Lorem ipsum dolor sit amet</h2>
+          <button class="collapses-desktop__tab is-active" data-img="img/img-2.png">
+            <h4 class="collapse__title">Lorem ipsum</h4>
+          </button>
+          <button class="collapses-desktop__tab" data-img="img/img-3.png">
+            <h4 class="collapse__title">Lorem ipsum</h4>
+          </button>
+          <button class="collapses-desktop__tab" data-img="img/img-4.png">
+            <h4 class="collapse__title">Lorem ipsum</h4>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"></footer>
   <footer class="site-footer">
-    <!-- enlaces y créditos -->
   </footer>
+
+ <script>
+    document.querySelectorAll('.collapse').forEach(collapse => {
+      const btn = collapse.querySelector('.collapse__trigger');
+      const panel = collapse.querySelector('.collapse__panel');
+      const icon = btn.querySelector('.collapse__icon');
+      const downSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="#27415C" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>';
+      const rightSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="#27415C" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>';
+
+      btn.addEventListener('click', () => {
+        const expanded = collapse.classList.toggle('collapse--expanded');
+        btn.setAttribute('aria-expanded', expanded);
+        panel.hidden = !expanded;
+        icon.innerHTML = expanded ? downSVG : rightSVG;
+      });
+    });
+  </script>
+  <script>
+    document.querySelectorAll('.collapses-desktop__tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // activar estado
+        document.querySelectorAll('.collapses-desktop__tab')
+          .forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        // actualizar imagen
+        const src = tab.dataset.img;
+        document.querySelector('.collapses-desktop__panel img').src = src;
+      });
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>
