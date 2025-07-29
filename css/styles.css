@@ -172,25 +172,24 @@ h5 { font-size: var(--fs-h5); line-height: var(--lh-h5); }
 
 /* ================= Desktop (≥1920px) ================= */
 @media screen and (min-width: 1920px) {
-  .container {
+  .site-header .container {
+    position: relative;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 32px;
     box-sizing: border-box;
   }
-
-  .decor-top-right {
+.decor-top-right {
+    display: block;
     position: absolute;
+    top: 0;
+    right: 0;
     width: 597px;
     height: 349px;
-    left: 1323px;
-    top: 0px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    z-index: 0;
     background-image: url('/img/Union.png');
+    background-size: contain;
     background-repeat: no-repeat;
+    z-index: -5;
 }
   .item {
     display: grid;
@@ -421,6 +420,129 @@ h5 { font-size: var(--fs-h5); line-height: var(--lh-h5); }
   .collapses-desktop__tab.is-active {
     background-color: #DDFFFF;
   }
-}
 
+/* ================= Desktop (<1920px) ================= */
+@media screen and (min-width: 1024px) and (max-width: 1919px) {
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 32px;
+    box-sizing: border-box;
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: 648px 648px;
+    gap: 80px;
+    width: 100%;
+    max-width: 1440px;
+    height: 628px;
+    padding: 64px 32px;
+    margin: 0 auto;
+  }
+  .item__tag-text {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 64px;
+    width: 648px;
+    height: 460px;
+  }
+  .item__image {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 648px;
+    height: 500px;
+  }
+  .item__frame {
+    position: static;
+    width: 591.84px;
+    height: 496px;
+    object-fit: cover;
+  }
+  .item__title,
+  .item__subtitle {
+    text-align: left;
+  }
+
+  .collapses {
+    display: none;
+  }
+  .collapses-desktop {
+    display: block;
+    padding: 64px 0;
+  }
+
+  .collapses-desktop__grid {
+    display: grid;
+    grid-template-columns: 720px 400px;
+    column-gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 374.582px;
+  }
+
+  .collapses-desktop__panel {
+    width: 720px;
+    height: 374.582px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .collapses-desktop__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collapses-desktop__tabs {
+    width: 400px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .collapses-desktop__tabs .collapses__heading {
+    width: 400px;
+    height: 88px;
+    margin: 0;
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    text-align: left;
+  }
+
+  .collapses-desktop__tab {
+    width: 400px;
+    height: 56px;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #27415C;
+    text-align: left;
+    cursor: pointer;
+    font-size: var(--fs-h4);
+    line-height: var(--lh-h4);
+    box-sizing: border-box;
+  }
+  .collapses-desktop__tab.is-active {
+    background-color: #DDFFFF;
+  }
+  .decor-top-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 597px;
+    height: 349px;
+    background-image: url('/img/Union.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -5;
+  }
+}
+}
 
