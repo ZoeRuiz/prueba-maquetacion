@@ -155,6 +155,10 @@ h5 { font-size: var(--fs-h5); line-height: var(--lh-h5); }
   border-bottom-right-radius: 8px;
   background-color: #FFFFFF;
 }
+
+.collapse__title {
+    color:#27415C;
+}
 .collapse__panel[hidden] {
   display: none;
 }
